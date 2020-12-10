@@ -1,6 +1,11 @@
 # Pull base image 
-From tomcat:8-jre8 
+From centos 
+
+RUN yum update -y
+RUN yum install httpd -y
 
 # Maintainer 
-MAINTAINER "valaxytech@gmail.com" 
-COPY ./webapp.war /usr/local/tomcat/webapps
+MAINTAINER "dhawleshitalkumar@gmail.com" 
+COPY index.html /var/www/html/
+RUN systemctl restart httpd
+
